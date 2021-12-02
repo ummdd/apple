@@ -1,9 +1,6 @@
 package com.umid.apple.db;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class MessageDatabase {
@@ -13,7 +10,15 @@ public class MessageDatabase {
 
     private String text;
 
+    @Column(name = "tutti")
     private String tag;
+
+    public MessageDatabase(String text, String tag) {
+        this.text = text;
+        this.tag = tag;
+    }
+
+    public MessageDatabase(){ }
 
     public Integer getId() {
         return id;
